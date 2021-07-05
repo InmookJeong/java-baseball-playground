@@ -55,7 +55,7 @@ public class StringTest {
      */
     @Test
     @DisplayName(value = "문자열의 charAt() 메소드를 활용해 특정 위치의 문자열을 가져오기")
-    void chatAt() {
+    void charAt() {
     	String actualStr = "abc";
     	
     	// TODO
