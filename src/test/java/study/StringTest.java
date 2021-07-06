@@ -58,15 +58,15 @@ public class StringTest {
     void charAt() {
     	String actualStr = "abc";
     	
-    	// TODO
-    	assertThatThrownBy(() -> {
-    		actualStr.charAt(5);
-    	}).isInstanceOf(IndexOutOfBoundsException.class)
-    		.hasMessageContaining("Index : "+actualStr.length()+", Size : "+actualStr.length());
+    	// TODO Throw를 무조건 던지는 것인지 확인할 필요 있음; 내가 원하는 Exception이 발생하면 원하는 메시지 출력하는 코드인 듯.
+//    	assertThatThrownBy(() -> 
+//    		actualStr.charAt(1)
+//    	).isInstanceOf(StringIndexOutOfBoundsException.class)
+//    		.hasMessageContaining("Index : "+(actualStr.length()-1)+", Size : "+actualStr.length());
     	
-    	// TODO
-//    	assertThatExceptionOfType(IndexOutOfBoundsException.class).isThrownBy(() -> {
-//    		actualStr.charAt(4);
-//    	}).withMessageMatching("Index : \\d+, Size : \\d+");
+    	// TODO Throw를 무조건 던지는 것인지 확인할 필요 있음; 내가 원하는 Exception이 발생하면 원하는 메시지 출력하는 코드인 듯.
+    	assertThatExceptionOfType(IndexOutOfBoundsException.class).isThrownBy(() -> {
+    		actualStr.charAt(5);
+    	}).withMessageMatching("Index : \\d+, Size : \\d+");
     }
 }
