@@ -35,4 +35,17 @@ public class SetTest {
 //		assertTrue(numbers.size() == 3);
 		assertThat(numbers.size()).isEqualTo(3);
 	}
+	
+	/**
+	 * 요구사항 2<br/>
+	 * &emsp;- Set의 contains() 메소드를 활용해 1, 2, 3의 값이 존재하는지를 확인하는 학습테스트를 구현하려한다.<br/>
+	 * &emsp;- 구현하고 보니 다음과 같이 중복 코드가 계속해서 발생한다.<br/>
+	 * &emsp;- JUnit의 ParameterizedTest를 활용해 중복 코드를 제거해 본다.
+	 */
+	@Test
+	void contains() {
+		assertThat(numbers.contains(1)).isTrue();
+		assertThat(numbers.contains(2)).isTrue();
+		assertThat(numbers.contains(3)).isTrue();
+	}
 }
