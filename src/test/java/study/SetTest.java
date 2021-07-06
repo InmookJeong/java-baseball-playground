@@ -7,6 +7,9 @@ import java.util.Set;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -42,10 +45,9 @@ public class SetTest {
 	 * &emsp;- 구현하고 보니 다음과 같이 중복 코드가 계속해서 발생한다.<br/>
 	 * &emsp;- JUnit의 ParameterizedTest를 활용해 중복 코드를 제거해 본다.
 	 */
-	@Test
-	void contains() {
-		assertThat(numbers.contains(1)).isTrue();
-		assertThat(numbers.contains(2)).isTrue();
-		assertThat(numbers.contains(3)).isTrue();
+	@ParameterizedTest
+	@ValueSource(ints = {1, 2, 3})
+	void contains(int number) {
+		assertTrue(numbers.contains(number));
 	}
 }
