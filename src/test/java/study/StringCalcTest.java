@@ -11,6 +11,9 @@ import org.junit.jupiter.api.Test;
  */
 public class StringCalcTest {
 	
+	int num = 0;
+	String a = "";
+	
 	/**
 	 * 요구사항 <br/>
 	 * &emsp;- 사용자가 입력한 문자열 값에 따라 사칙연산을 수행할 수 있는 계산기를 구현해야 한다.
@@ -26,40 +29,43 @@ public class StringCalcTest {
 		
 		
 		for(String v : values) {
-			calc(v);
+			calculateResult(v);
 		}
 		System.out.println("result : " + num);
 	}
 	
-	// TODO if문, Switch문 2Depth 초과하지 않도록 작성하기
-	void calc(String value) {
+	void calculateResult(String value) {
 		String numericRegExp = "^[0-9]+$";
 		if(value.matches(numericRegExp)) {
-			int numericString = Integer.parseInt(value);
-			if(num == 0) {
-				num = numericString;
-			} else {
-				switch(a) {
-					case "+" :
-						num += numericString;
-						break;
-					case "-" :
-						num -= numericString;
-						break;
-					case "*" :
-						num *= numericString;
-						break;
-					case "/" :
-						num /= numericString;
-						break;
-				}
-			}
+			int number = Integer.parseInt(value);
+			calculater(number);
 		} else  {
 			a = value;
 		}
 	}
 	
-	int num = 0;
-	String a = "";
-
+	// 실제 계산.
+	void calculater(int number) {
+		// 계산을 위한 num 값이 0인 경어 파라미터를 num에 대입
+		if(num == 0) {
+			num= number;
+			return;
+		}
+		
+		// num의 값이 0이 아닌 경우 사칙연산 실행
+		switch(a) {
+			case "+" :
+				num += number;
+				break;
+			case "-" :
+				num -= number;
+				break;
+			case "*" :
+				num *= number;
+				break;
+			case "/" :
+				num /= number;
+				break;
+		}
+	}
 }
